@@ -1,16 +1,16 @@
--- --Adding a Column named age of a customer
--- Alter table "CustomerDemographics"
--- add column age numeric
+--Adding a Column named age of a customer
+Alter table "CustomerDemographics"
+add column age numeric
 
--- update "CustomerDemographics"
--- set age = round(extract (year from AGE(current_date,"DOB")) +  extract(month from AGE(current_date,"DOB"))/12,2)
+update "CustomerDemographics"
+set age = round(extract (year from AGE(current_date,"DOB")) +  extract(month from AGE(current_date,"DOB"))/12,2)
 
--- --Adding a column named profit
--- Alter table "Transactions"
--- add column profit numeric
+--Adding a column named profit
+Alter table "Transactions"
+add column profit numeric
 
--- update "Transactions"
--- set profit = list_price-standard_cost
+update "Transactions"
+set profit = list_price-standard_cost
 
 -- The total Profit made from selling bikes
 select extract(month from transaction_date) as month,round(sum(profit)) as Total_Profit from "Transactions"
